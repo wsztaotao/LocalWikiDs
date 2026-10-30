@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "started_at": "2026-10-26T12:32:55+08:00",
+  "personal": {
+    "ok": true,
+    "steps": [
+      {
+        "ok": true,
+        "path": "memories/_nightly.md",
+        "change_uid": "chg_dd3306e2e00f",
+        "state": "accepted"
+      },
+      {
+        "ok": true,
+        "path": "experiences/_nightly.md",
+        "change_uid": "chg_cd7813a8c478",
+        "state": "accepted"
+      },
+      {
+        "ok": true,
+        "path": "profiles/style/language.md",
+        "change_uid": "chg_8b665826ee33",
+        "state": "accepted"
+      }
+    ],
+    "confirmed": {
+      "updated_at": "2026-10-26T12:32:55+08:00",
+      "paths": [
+        "memories/_nightly.md",
+        "experiences/_nightly.md",
+        "profiles/style/language.md"
+      ]
+    }
+  },
+  "evolution": {
+    "ok": true,
+    "paused": false,
+    "applied": [],
+    "rejected": []
+  },
+  "fts": {
+    "ok": true,
+    "indexed": 7,
+    "db": "F:\\project\\_LocalWiki\\locaalwikicodes\\workspace\\.kw\\cache\\wiki_fts.sqlite"
+  },
+  "finished_at": "2026-10-26T12:32:55+08:00"
+}

@@ -1,0 +1,711 @@
+{
+  "change_uid": "chg_7c1c69ac7c70",
+  "source_uid": "src_c00229c105d8",
+  "ingest": {
+    "summary": {
+      "source_version_uid": "src_c00229c105d8_v001",
+      "compile_signature": "8c84860722104de76539923bbd81b58299ab208d11e8a0cea309dffd8a5c95b3",
+      "reused": false,
+      "knowledge_ops": 1,
+      "conflicts": 0,
+      "memory_candidates": 0,
+      "experience_candidates": 0,
+      "style_evidence": 0,
+      "attribution": "unknown",
+      "schema_version": "0.12.0",
+      "issues": []
+    },
+    "fact_batch": {
+      "schema_version": "0.12.0",
+      "source_version_uid": "src_c00229c105d8_v001",
+      "extraction_uid": "ext_fccc5caa5f74",
+      "facts": [
+        {
+          "fact_uid": "fact_2309c0c7c1f8",
+          "claim": "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》",
+            "分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p0",
+              "excerpt": "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_ae1373fecb49",
+          "claim": "说明：在小学语文新课标视域下，利用课内外融合的方式，即：课堂教学与课外实践活动相融合。利用学校每年10月份开展的语文素养月活动，分学段，实践赋能，开展系列性的听、说、读、写、表达、演绎等活动，养小学生的文化自信、语言运用、思维能力、审美创造语文核心素养。",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p1",
+              "excerpt": "说明：在小学语文新课标视域下，利用课内外融合的方式，即：课堂教学与课外实践活动相融合。利用学校每年10月份开展的语文素养月活动，分学段，实践赋能，开展系列性的听、说、读、写、表达、演绎等活动，养小学生的文化自信、语言运用、思维能力、审美创造语文核心素养。"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_fa3fed34ac10",
+          "claim": "一、对研究课题的论证",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p2",
+              "excerpt": "一、对研究课题的论证"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_c1c07f9bf4b3",
+          "claim": "（一）国内外同类课题研究状况",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p3",
+              "excerpt": "（一）国内外同类课题研究状况"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_c756343246fb",
+          "claim": "第一步\"述\":梳理归纳已有研究",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p4",
+              "excerpt": "第一步\"述\":梳理归纳已有研究"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_4c45749c937d",
+          "claim": "要点一:说明研究总量,该领域已积累多少相关研究，分析研究热度与基础；",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p5",
+              "excerpt": "要点一:说明研究总量,该领域已积累多少相关研究，分析研究热度与基础；"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_ab591e1a46d7",
+          "claim": "要点二:归类提炼主要观点,把有代表性的观点分成几类归纳论述，不零散罗列学者姓名；",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p6",
+              "excerpt": "要点二:归类提炼主要观点,把有代表性的观点分成几类归纳论述，不零散罗列学者姓名；"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_8efd41190c3f",
+          "claim": "要点三:介绍研究方法,必要时说明已有研究主要采用哪些方法，为后续方法选择作铺垫。",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p7",
+              "excerpt": "要点三:介绍研究方法,必要时说明已有研究主要采用哪些方法，为后续方法选择作铺垫。"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_da59208d73c0",
+          "claim": "不是抄文献，而是归纳,分层展开,国外、国内、本省、本市",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p8",
+              "excerpt": "不是抄文献，而是归纳,分层展开,国外、国内、本省、本市"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_7496769cb80d",
+          "claim": "理论少而精:选2-3个核心理论，说明指导作用，不堆砌关键点:别人做到哪一步我要解决什么新问题",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p9",
+              "excerpt": "理论少而精:选2-3个核心理论，说明指导作用，不堆砌关键点:别人做到哪一步我要解决什么新问题"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_016c676b0730",
+          "claim": "（二）本课题的理论意义和实践意义",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p10",
+              "excerpt": "（二）本课题的理论意义和实践意义"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_aa6eba08b7eb",
+          "claim": "突出课题的创新性、应用性、社会价值。\n1.理论意义:从丰富某一领域的理论，或完善现有理论模型阐述\n2.实践意义:直接回应社会需求，提供可操作的解决方案\n（三）核心概念界定",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p11",
+              "excerpt": "突出课题的创新性、应用性、社会价值。\n1.理论意义:从丰富某一领域的理论，或完善现有理论模型阐述\n2.实践意义:直接回应社会需求，提供可操作的解决方案\n（三）核心概念界定"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_595e245514fb",
+          "claim": "1.课题界定:对课题研究的对象、内容、范围进行诠释，对核心概念进行说明。",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p12",
+              "excerpt": "1.课题界定:对课题研究的对象、内容、范围进行诠释，对核心概念进行说明。"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_d1d68026153b",
+          "claim": "2.核心概念界定:要对反映课题研究主题或研究内容的关键词(一般人不熟悉的术语或某些容易引起歧义的概念)进行操作性定义，尤其是要解释清楚自己课题研究中的相关概念的实际含义。尽可能表达出其内涵和外延。",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p13",
+              "excerpt": "2.核心概念界定:要对反映课题研究主题或研究内容的关键词(一般人不熟悉的术语或某些容易引起歧义的概念)进行操作性定义，尤其是要解释清楚自己课题研究中的相关概念的实际含义。尽可能表达出其内涵和外延。"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_e8f9ca54876d",
+          "claim": "（四）本课题研究要达到的预定目标\n1.1.研究目标的定位要准确，紧扣课题，关键指向要具体、明确，表述简洁。可以用\"动词+名词\"格式表述。(动宾结构)",
+          "kind": "source_opinion",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p14",
+              "excerpt": "（四）本课题研究要达到的预定目标\n1.1.研究目标的定位要准确，紧扣课题，关键指向要具体、明确，表述简洁。可以用\"动词+名词\"格式表述。(动宾结构)"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_e73129344e2e",
+          "claim": "2.有条理;适度，一般为3-4个。\n（五）课题研究思路",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p15",
+              "excerpt": "2.有条理;适度，一般为3-4个。\n（五）课题研究思路"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_d6eeed6b1bda",
+          "claim": "实施研究内容的思维路径，即按时间顺序，重新表述研究内容。可以文图结合，文字+线路图。\n（六）研究内容：\n1.与研究目标对应，围绕关键问题。(1个研究目标可能需要1-3个内容来实现。)",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p16",
+              "excerpt": "实施研究内容的思维路径，即按时间顺序，重新表述研究内容。可以文图结合，文字+线路图。\n（六）研究内容：\n1.与研究目标对应，围绕关键问题。(1个研究目标可能需要1-3个内容来实现。)"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_b30e6b77ea92",
+          "claim": "2.可以将内容分为几大部分或主题进行论述，互相之间具有一定的内在逻辑关系。",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p17",
+              "excerpt": "2.可以将内容分为几大部分或主题进行论述，互相之间具有一定的内在逻辑关系。"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_046159eed2c3",
+          "claim": "3.表述简洁、明确;表达主要观点，观点新颖，有创新性，且重点突出，详略得当。",
+          "kind": "source_opinion",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p18",
+              "excerpt": "3.表述简洁、明确;表达主要观点，观点新颖，有创新性，且重点突出，详略得当。"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_adb77640b83f",
+          "claim": "（七）重点和难点\n1.研究重点紧扣研究目标，提炼核心任务;",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p19",
+              "excerpt": "（七）重点和难点\n1.研究重点紧扣研究目标，提炼核心任务;"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_0461af57213c",
+          "claim": "2.研究难点聚焦实施过程中不易解决、具有挑战性的关键问题。\n（八）课题研究方法",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p20",
+              "excerpt": "2.研究难点聚焦实施过程中不易解决、具有挑战性的关键问题。\n（八）课题研究方法"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_8d329637828f",
+          "claim": "1.要服务研究目标，与研究内容匹配;3-4个为宜。没有最好的方法，只有最合适的方法。",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p21",
+              "excerpt": "1.要服务研究目标，与研究内容匹配;3-4个为宜。没有最好的方法，只有最合适的方法。"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_5a4ee90bf59a",
+          "claim": "2.科学规范地使用，简述在课题研究中如何使用这些研究方法，讲清楚\"做些么\"\"怎样做”",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p22",
+              "excerpt": "2.科学规范地使用，简述在课题研究中如何使用这些研究方法，讲清楚\"做些么\"\"怎样做”"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_45c15fbb3cf7",
+          "claim": "1.写清楚各阶段做什么(研究任务)、用什么方法、产出什么阶段性成果。",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p24",
+              "excerpt": "1.写清楚各阶段做什么(研究任务)、用什么方法、产出什么阶段性成果。"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_6b98054248bb",
+          "claim": "2.任务要紧扣研究目标、研究内容，不写无关工作。",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p25",
+              "excerpt": "2.任务要紧扣研究目标、研究内容，不写无关工作。"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_1611544c2845",
+          "claim": "3.阶段之间要有逻辑衔接:前一阶段成果，作为后一阶段的基础。",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p26",
+              "excerpt": "3.阶段之间要有逻辑衔接:前一阶段成果，作为后一阶段的基础。"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_b833151e2c1c",
+          "claim": "二、对课题实施和完成条件的论证（你自己发挥）",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p27",
+              "excerpt": "二、对课题实施和完成条件的论证（你自己发挥）"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_fcfcc01952d0",
+          "claim": "（一）已取得的相关研究成果；\n（二）负责人的研究水平、组织能力和时间保证；\n（三）参加者的研究水平和时间保证；\n（四）配套资金、科研手段；",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p28",
+              "excerpt": "（一）已取得的相关研究成果；\n（二）负责人的研究水平、组织能力和时间保证；\n（三）参加者的研究水平和时间保证；\n（四）配套资金、科研手段；"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        },
+        {
+          "fact_uid": "fact_8eb7a22efbc0",
+          "claim": "（五）课题组人员分工。",
+          "kind": "source_fact",
+          "concept_names": [
+            "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+          ],
+          "evidence_refs": [
+            {
+              "locator": "p29",
+              "excerpt": "（五）课题组人员分工。"
+            }
+          ],
+          "scope": "general",
+          "uncertainties": [],
+          "speaker_role": "unknown"
+        }
+      ],
+      "issues": []
+    },
+    "knowledge": {
+      "changeset_status": "draft",
+      "plan": {
+        "base_snapshot_id": "snap_000000",
+        "source_versions": [
+          "src_c00229c105d8_v001"
+        ],
+        "operations": [
+          {
+            "op": "create",
+            "page_uid": null,
+            "draft_uid": "draft_4b1d4da0a3f6",
+            "title": "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》",
+            "page_type": "Topic",
+            "reason": "no_existing_match",
+            "fact_uids": [
+              "fact_2309c0c7c1f8",
+              "fact_ae1373fecb49",
+              "fact_fa3fed34ac10",
+              "fact_c1c07f9bf4b3",
+              "fact_c756343246fb",
+              "fact_4c45749c937d",
+              "fact_ab591e1a46d7",
+              "fact_8efd41190c3f",
+              "fact_da59208d73c0",
+              "fact_7496769cb80d",
+              "fact_016c676b0730",
+              "fact_aa6eba08b7eb",
+              "fact_595e245514fb",
+              "fact_d1d68026153b",
+              "fact_e8f9ca54876d",
+              "fact_e73129344e2e",
+              "fact_d6eeed6b1bda",
+              "fact_b30e6b77ea92",
+              "fact_046159eed2c3",
+              "fact_adb77640b83f",
+              "fact_0461af57213c",
+              "fact_8d329637828f",
+              "fact_5a4ee90bf59a",
+              "fact_45c15fbb3cf7",
+              "fact_6b98054248bb",
+              "fact_1611544c2845",
+              "fact_b833151e2c1c",
+              "fact_fcfcc01952d0",
+              "fact_8eb7a22efbc0"
+            ],
+            "baseline_hash": null
+          }
+        ],
+        "conflicts": [],
+        "issues": [],
+        "plan_uid": "plan_cef3499770cd"
+      },
+      "drafts": {
+        "plan_uid": "plan_cef3499770cd",
+        "operations": [
+          {
+            "draft_uid": "draft_4b1d4da0a3f6",
+            "op": "create",
+            "title": "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》",
+            "page_type": "Topic",
+            "summary": "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》",
+            "body": "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》\n\n说明：在小学语文新课标视域下，利用课内外融合的方式，即：课堂教学与课外实践活动相融合。利用学校每年10月份开展的语文素养月活动，分学段，实践赋能，开展系列性的听、说、读、写、表达、演绎等活动，养小学生的文化自信、语言运用、思维能力、审美创造语文核心素养。\n\n一、对研究课题的论证\n\n（一）国内外同类课题研究状况\n\n第一步\"述\":梳理归纳已有研究\n\n要点一:说明研究总量,该领域已积累多少相关研究，分析研究热度与基础；\n\n要点二:归类提炼主要观点,把有代表性的观点分成几类归纳论述，不零散罗列学者姓名；\n\n要点三:介绍研究方法,必要时说明已有研究主要采用哪些方法，为后续方法选择作铺垫。\n\n不是抄文献，而是归纳,分层展开,国外、国内、本省、本市\n\n理论少而精:选2-3个核心理论，说明指导作用，不堆砌关键点:别人做到哪一步我要解决什么新问题\n\n（二）本课题的理论意义和实践意义\n\n突出课题的创新性、应用性、社会价值。\n1.理论意义:从丰富某一领域的理论，或完善现有理论模型阐述\n2.实践意义:直接回应社会需求，提供可操作的解决方案\n（三）核心概念界定\n\n1.课题界定:对课题研究的对象、内容、范围进行诠释，对核心概念进行说明。\n\n2.核心概念界定:要对反映课题研究主题或研究内容的关键词(一般人不熟悉的术语或某些容易引起歧义的概念)进行操作性定义，尤其是要解释清楚自己课题研究中的相关概念的实际含义。尽可能表达出其内涵和外延。\n\n（四）本课题研究要达到的预定目标\n1.1.研究目标的定位要准确，紧扣课题，关键指向要具体、明确，表述简洁。可以用\"动词+名词\"格式表述。(动宾结构)\n\n2.有条理;适度，一般为3-4个。\n（五）课题研究思路\n\n实施研究内容的思维路径，即按时间顺序，重新表述研究内容。可以文图结合，文字+线路图。\n（六）研究内容：\n1.与研究目标对应，围绕关键问题。(1个研究目标可能需要1-3个内容来实现。)\n\n2.可以将内容分为几大部分或主题进行论述，互相之间具有一定的内在逻辑关系。\n\n3.表述简洁、明确;表达主要观点，观点新颖，有创新性，且重点突出，详略得当。\n\n（七）重点和难点\n1.研究重点紧扣研究目标，提炼核心任务;\n\n2.研究难点聚焦实施过程中不易解决、具有挑战性的关键问题。\n（八）课题研究方法\n\n1.要服务研究目标，与研究内容匹配;3-4个为宜。没有最好的方法，只有最合适的方法。\n\n2.科学规范地使用，简述在课题研究中如何使用这些研究方法，讲清楚\"做些么\"\"怎样做”\n\n1.写清楚各阶段做什么(研究任务)、用什么方法、产出什么阶段性成果。\n\n2.任务要紧扣研究目标、研究内容，不写无关工作。\n\n3.阶段之间要有逻辑衔接:前一阶段成果，作为后一阶段的基础。\n\n二、对课题实施和完成条件的论证（你自己发挥）\n\n（一）已取得的相关研究成果；\n（二）负责人的研究水平、组织能力和时间保证；\n（三）参加者的研究水平和时间保证；\n（四）配套资金、科研手段；\n\n（五）课题组人员分工。",
+            "evidence_refs": [
+              {
+                "locator": "p0",
+                "excerpt": "《分层进阶 践学赋能：小学语文课内外融合培育核心素养的模式构建研究》"
+              },
+              {
+                "locator": "p1",
+                "excerpt": "说明：在小学语文新课标视域下，利用课内外融合的方式，即：课堂教学与课外实践活动相融合。利用学校每年10月份开展的语文素养月活动，分学段，实践赋能，开展系列性的听、说、读、写、表达、演绎等活动，养小学生的文化自信、语言运用、思维能力、审美创造语文核心素养。"
+              },
+              {
+                "locator": "p2",
+                "excerpt": "一、对研究课题的论证"
+              },
+              {
+                "locator": "p3",
+                "excerpt": "（一）国内外同类课题研究状况"
+              },
+              {
+                "locator": "p4",
+                "excerpt": "第一步\"述\":梳理归纳已有研究"
+              },
+              {
+                "locator": "p5",
+                "excerpt": "要点一:说明研究总量,该领域已积累多少相关研究，分析研究热度与基础；"
+              },
+              {
+                "locator": "p6",
+                "excerpt": "要点二:归类提炼主要观点,把有代表性的观点分成几类归纳论述，不零散罗列学者姓名；"
+              },
+              {
+                "locator": "p7",
+                "excerpt": "要点三:介绍研究方法,必要时说明已有研究主要采用哪些方法，为后续方法选择作铺垫。"
+              },
+              {
+                "locator": "p8",
+                "excerpt": "不是抄文献，而是归纳,分层展开,国外、国内、本省、本市"
+              },
+              {
+                "locator": "p9",
+                "excerpt": "理论少而精:选2-3个核心理论，说明指导作用，不堆砌关键点:别人做到哪一步我要解决什么新问题"
+              },
+              {
+                "locator": "p10",
+                "excerpt": "（二）本课题的理论意义和实践意义"
+              },
+              {
+                "locator": "p11",
+                "excerpt": "突出课题的创新性、应用性、社会价值。\n1.理论意义:从丰富某一领域的理论，或完善现有理论模型阐述\n2.实践意义:直接回应社会需求，提供可操作的解决方案\n（三）核心概念界定"
+              },
+              {
+                "locator": "p12",
+                "excerpt": "1.课题界定:对课题研究的对象、内容、范围进行诠释，对核心概念进行说明。"
+              },
+              {
+                "locator": "p13",
+                "excerpt": "2.核心概念界定:要对反映课题研究主题或研究内容的关键词(一般人不熟悉的术语或某些容易引起歧义的概念)进行操作性定义，尤其是要解释清楚自己课题研究中的相关概念的实际含义。尽可能表达出其内涵和外延。"
+              },
+              {
+                "locator": "p14",
+                "excerpt": "（四）本课题研究要达到的预定目标\n1.1.研究目标的定位要准确，紧扣课题，关键指向要具体、明确，表述简洁。可以用\"动词+名词\"格式表述。(动宾结构)"
+              },
+              {
+                "locator": "p15",
+                "excerpt": "2.有条理;适度，一般为3-4个。\n（五）课题研究思路"
+              },
+              {
+                "locator": "p16",
+                "excerpt": "实施研究内容的思维路径，即按时间顺序，重新表述研究内容。可以文图结合，文字+线路图。\n（六）研究内容：\n1.与研究目标对应，围绕关键问题。(1个研究目标可能需要1-3个内容来实现。)"
+              },
+              {
+                "locator": "p17",
+                "excerpt": "2.可以将内容分为几大部分或主题进行论述，互相之间具有一定的内在逻辑关系。"
+              },
+              {
+                "locator": "p18",
+                "excerpt": "3.表述简洁、明确;表达主要观点，观点新颖，有创新性，且重点突出，详略得当。"
+              },
+              {
+                "locator": "p19",
+                "excerpt": "（七）重点和难点\n1.研究重点紧扣研究目标，提炼核心任务;"
+              },
+              {
+                "locator": "p20",
+                "excerpt": "2.研究难点聚焦实施过程中不易解决、具有挑战性的关键问题。\n（八）课题研究方法"
+              },
+              {
+                "locator": "p21",
+                "excerpt": "1.要服务研究目标，与研究内容匹配;3-4个为宜。没有最好的方法，只有最合适的方法。"
+              },
+              {
+                "locator": "p22",
+                "excerpt": "2.科学规范地使用，简述在课题研究中如何使用这些研究方法，讲清楚\"做些么\"\"怎样做”"
+              },
+              {
+                "locator": "p24",
+                "excerpt": "1.写清楚各阶段做什么(研究任务)、用什么方法、产出什么阶段性成果。"
+              },
+              {
+                "locator": "p25",
+                "excerpt": "2.任务要紧扣研究目标、研究内容，不写无关工作。"
+              },
+              {
+                "locator": "p26",
+                "excerpt": "3.阶段之间要有逻辑衔接:前一阶段成果，作为后一阶段的基础。"
+              },
+              {
+                "locator": "p27",
+                "excerpt": "二、对课题实施和完成条件的论证（你自己发挥）"
+              },
+              {
+                "locator": "p28",
+                "excerpt": "（一）已取得的相关研究成果；\n（二）负责人的研究水平、组织能力和时间保证；\n（三）参加者的研究水平和时间保证；\n（四）配套资金、科研手段；"
+              },
+              {
+                "locator": "p29",
+                "excerpt": "（五）课题组人员分工。"
+              }
+            ],
+            "baseline_hash": null,
+            "page_uid": null
+          }
+        ]
+      }
+    },
+    "memory_candidates": [],
+    "experience_candidates": [],
+    "style_evidence": []
+  }
+}

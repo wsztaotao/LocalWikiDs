@@ -1,0 +1,17 @@
+{
+  "change_uid": "chg_8b665826ee33",
+  "base_snapshot_id": "snap_3ff9ae76",
+  "purpose": "nightly persona/style update",
+  "ops": [
+    {
+      "op": "update",
+      "path": "profiles/style/language.md",
+      "content": "# Language style\n\nNightly refresh `2026-10-26T12:32:55+08:00`.\n",
+      "base_sha256": "240efae3e46fd2abcef9e76d61a0d163a9ab232362a70336eca64088a14cfd92"
+    }
+  ],
+  "state": "accepted",
+  "created_at": "2026-10-26T04:32:55+00:00",
+  "commit_id": "cmt_28e8b4983f07",
+  "error": null
+}

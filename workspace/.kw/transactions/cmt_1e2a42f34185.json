@@ -1,0 +1,16 @@
+{
+  "commit_id": "cmt_1e2a42f34185",
+  "parent": "snap_51c41943",
+  "snapshot_id": "snap_3ff9ae76",
+  "change_uid": "chg_cd7813a8c478",
+  "ops": [
+    {
+      "op": "update",
+      "path": "experiences/_nightly.md",
+      "content": "# Nightly experience note\n\nCompiled at `2026-10-26T12:32:55+08:00`.\n",
+      "base_sha256": "dc5fc45afccc37dd9358d1ea8a0fdca6d0a7ce6a026101388a1be207374cc462"
+    }
+  ],
+  "phase": "COMMITTED",
+  "at": "2026-10-26T04:32:55+00:00"
+}

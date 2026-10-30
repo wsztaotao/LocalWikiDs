@@ -1,0 +1,437 @@
+/* LocalWiki — Facebook Web–inspired shell (R3.20) */
+:root {
+  --lw-bg: #f0f2f5;
+  --lw-surface: #ffffff;
+  --lw-border: #dddfe2;
+  --lw-text: #050505;
+  --lw-muted: #65676b;
+  --lw-accent: #1877f2;
+  --lw-accent-hover: #166fe5;
+  --lw-accent-soft: #e7f3ff;
+  --lw-danger: #e41e3f;
+  --lw-sidebar-w: 228px;
+  --lw-radius: 8px;
+  --lw-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --lw-font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.lw-body {
+  margin: 0;
+  background: var(--lw-bg);
+  color: var(--lw-text);
+  font-family: var(--lw-font);
+}
+
+#app-shell {
+  min-height: 100vh;
+}
+
+.lw-sidebar {
+  width: var(--lw-sidebar-w);
+  min-width: var(--lw-sidebar-w);
+  background: var(--lw-surface);
+  border-right: 1px solid var(--lw-border);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 100;
+  box-shadow: var(--lw-shadow);
+}
+
+.lw-brand {
+  border-bottom: 1px solid var(--lw-border);
+}
+
+.lw-brand .fw-bold {
+  color: var(--lw-accent) !important;
+  letter-spacing: -0.02em;
+}
+
+.lw-brand .text-white-50,
+.lw-sidebar .text-white-50 {
+  color: var(--lw-muted) !important;
+}
+
+.lw-sidebar .nav-link {
+  color: var(--lw-text);
+  border-radius: var(--lw-radius);
+  padding: 0.55rem 0.75rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.lw-sidebar .nav-link:hover {
+  color: var(--lw-text);
+  background: var(--lw-bg);
+}
+
+.lw-sidebar .nav-link.active {
+  color: var(--lw-accent);
+  background: var(--lw-accent-soft);
+  font-weight: 650;
+}
+
+.lw-sidebar .border-top {
+  border-color: var(--lw-border) !important;
+}
+
+.lw-main {
+  min-width: 0;
+  flex: 1;
+  max-width: none;
+  background: var(--lw-bg);
+}
+
+.panel {
+  display: none;
+}
+.panel.active {
+  display: block;
+}
+
+.panel > .h3,
+.panel h1.h3 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.card {
+  border-color: var(--lw-border);
+  border-radius: var(--lw-radius);
+  box-shadow: var(--lw-shadow);
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--lw-accent);
+  --bs-btn-border-color: var(--lw-accent);
+  --bs-btn-hover-bg: var(--lw-accent-hover);
+  --bs-btn-hover-border-color: var(--lw-accent-hover);
+  --bs-btn-font-weight: 600;
+  border-radius: 6px;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--lw-accent);
+  --bs-btn-border-color: var(--lw-accent);
+  --bs-btn-hover-bg: var(--lw-accent-soft);
+  --bs-btn-hover-border-color: var(--lw-accent);
+  --bs-btn-hover-color: var(--lw-accent);
+}
+
+.nav-tabs {
+  border-bottom-color: var(--lw-border);
+}
+.nav-tabs .nav-link {
+  color: var(--lw-muted);
+  font-weight: 600;
+  border: none;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+}
+.nav-tabs .nav-link:hover {
+  color: var(--lw-accent);
+  border-color: transparent;
+}
+.nav-tabs .nav-link.active {
+  color: var(--lw-accent);
+  background: transparent;
+  border-color: transparent transparent var(--lw-accent);
+}
+
+.lw-pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 28rem;
+  overflow: auto;
+  font-size: 0.85rem;
+  background: var(--lw-surface);
+  border: 1px solid var(--lw-border);
+  border-radius: var(--lw-radius);
+}
+
+.min-h-240 {
+  min-height: 240px;
+}
+
+.wiki-graph-cy {
+  height: 420px;
+  min-height: 320px;
+  background: var(--lw-surface);
+  border-radius: var(--lw-radius);
+}
+
+#graph-empty-hint:not(.d-none) {
+  display: block;
+}
+
+.graph-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  color: var(--lw-muted, #65676b);
+}
+
+.graph-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.graph-legend-swatch {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+/* Workbench */
+.wb-layout-list {
+  max-width: 100%;
+}
+
+.wb-session-list {
+  max-height: calc(100vh - 11rem);
+  overflow: auto;
+  background: var(--lw-surface);
+  border: 1px solid var(--lw-border) !important;
+  border-radius: var(--lw-radius);
+}
+
+.wb-session-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0.65rem !important;
+}
+
+.wb-session-item .wb-session-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.wb-session-item.active {
+  background: var(--lw-accent-soft) !important;
+  color: var(--lw-accent) !important;
+  border-color: var(--lw-border) !important;
+  font-weight: 600;
+}
+
+.wb-session-del {
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  color: var(--lw-muted);
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  line-height: 1;
+}
+.wb-session-del:hover {
+  color: var(--lw-danger);
+  background: #fde8ec;
+}
+
+.wb-run-panel {
+  border: 1px solid var(--lw-border);
+  border-radius: var(--lw-radius);
+  background: #f7f8fa;
+  padding: 0.55rem 0.7rem;
+}
+.wb-run-head {
+  margin-bottom: 0.35rem;
+}
+.wb-run-status {
+  font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", Consolas, monospace;
+}
+.wb-run-log {
+  max-height: 8.5rem;
+  overflow: auto;
+  font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", Consolas, monospace;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--lw-muted);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.wb-run-log .wb-run-line {
+  display: block;
+  padding: 0.05rem 0;
+  border-bottom: 1px solid transparent;
+}
+.wb-body a.wb-link {
+  color: var(--lw-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  word-break: break-all;
+}
+.wb-messages {
+  min-height: min(52vh, 520px);
+  max-height: min(62vh, 640px);
+  overflow: auto;
+  background: var(--lw-surface);
+  border: 1px solid var(--lw-border);
+  border-radius: var(--lw-radius);
+  padding: 0.75rem !important;
+}
+
+.wb-msg {
+  padding: 0.75rem 0.9rem;
+  margin-bottom: 0.5rem;
+  border-radius: var(--lw-radius);
+  border: 1px solid transparent;
+  word-break: break-word;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.wb-msg.user {
+  background: var(--lw-accent-soft);
+  border-color: #cce0ff;
+}
+.wb-msg.assistant {
+  background: var(--lw-surface);
+  border-color: var(--lw-border);
+  box-shadow: var(--lw-shadow);
+}
+.wb-msg.fail {
+  border-left: 3px solid var(--lw-danger);
+}
+
+.wb-role {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--lw-muted);
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+}
+
+.wb-body {
+  color: var(--lw-text);
+}
+.wb-body .wb-status {
+  margin: 0 0 0.45rem;
+  color: var(--lw-muted);
+  font-size: 0.9rem;
+  font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", Consolas, monospace;
+  letter-spacing: 0.01em;
+}
+#btn-wb-continue:disabled {
+  opacity: 0.55;
+}
+.wb-body .wb-p {
+  margin: 0 0 0.55rem;
+  white-space: normal;
+}
+.wb-body .wb-p:last-child {
+  margin-bottom: 0;
+}
+.wb-body .wb-h {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0.65rem 0 0.35rem;
+}
+.wb-body .wb-ul {
+  margin: 0.25rem 0 0.65rem;
+  padding-left: 1.25rem;
+}
+.wb-body .wb-ul li {
+  margin: 0.2rem 0;
+}
+.wb-body strong {
+  font-weight: 650;
+}
+.wb-body code {
+  font-size: 0.85em;
+  background: var(--lw-bg);
+  padding: 0.05em 0.35em;
+  border-radius: 3px;
+}
+.wb-exports {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+#page-preview {
+  font-size: 0.85rem;
+}
+
+.probe-light {
+  display: inline-block;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.probe-light.ok {
+  background: #31a24c;
+}
+.probe-light.fail {
+  background: var(--lw-danger);
+}
+.probe-light.na {
+  background: #bcc0c4;
+}
+
+.agent-result-card .card-title {
+  font-size: 1.05rem;
+}
+
+#settings-tabs .nav-link {
+  color: var(--lw-muted);
+}
+#settings-tabs .nav-link.active {
+  font-weight: 650;
+  color: var(--lw-accent);
+}
+
+#models-subtabs .nav-link {
+  font-size: 0.9rem;
+  padding: 0.4rem 0.85rem;
+}
+
+.provider-chip {
+  cursor: pointer;
+}
+
+.list-group .card-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.list-group-item {
+  border-color: var(--lw-border);
+}
+
+@media (max-width: 768px) {
+  #app-shell {
+    flex-direction: column;
+  }
+  .lw-sidebar {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    position: relative;
+  }
+  .lw-sidebar .nav {
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    padding-bottom: 0.5rem;
+  }
+  .wb-messages {
+    min-height: 240px;
+    max-height: 360px;
+  }
+}

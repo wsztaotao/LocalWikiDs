@@ -1,0 +1,15 @@
+{
+  "commit_id": "cmt_ec2e5231b1b5",
+  "parent": "snap_34afe9ac",
+  "snapshot_id": "snap_4aeac016",
+  "change_uid": "chg_cc13964f0a0b",
+  "ops": [
+    {
+      "op": "create",
+      "path": "memories/_nightly.md",
+      "content": "# Nightly memory note\n\nLast nightly personal layer: `2026-10-22T15:14:36+08:00`\n\nAuto-accepted under D9 `memories/`.\n"
+    }
+  ],
+  "phase": "COMMITTED",
+  "at": "2026-10-22T07:14:36+00:00"
+}

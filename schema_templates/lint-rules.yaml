@@ -1,0 +1,39 @@
+# LocalWiki lint rules (v0.12 defaults) — 9 checks from design §5.6
+version: "0.12.0"
+rules:
+  format:
+    enabled: true
+    severity: error
+    frequency: on_change
+  broken_links:
+    enabled: true
+    severity: error
+    frequency: on_change
+  orphan_pages:
+    enabled: true
+    severity: warning
+    frequency: nightly
+  missing_concepts:
+    enabled: true
+    severity: info
+    frequency: nightly
+  contradictions:
+    enabled: true
+    severity: error
+    frequency: on_change
+  stale_content:
+    enabled: true
+    severity: info
+    frequency: nightly
+  duplicates:
+    enabled: true
+    severity: warning
+    frequency: nightly
+  source_gaps:
+    enabled: true
+    severity: info
+    frequency: nightly
+  memory_experience_consistency:
+    enabled: true
+    severity: warning
+    frequency: nightly

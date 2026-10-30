@@ -1,0 +1,150 @@
+{
+  "version": 2,
+  "providers": {
+    "ollama_local": {
+      "kind": "ollama",
+      "location": "local",
+      "base_url": "http://127.0.0.1:11434"
+    },
+    "deepseek": {
+      "kind": "openai_compatible",
+      "location": "online",
+      "base_url": "https://api.deepseek.com/v1",
+      "api_key": "secret:deepseek"
+    },
+    "qwen": {
+      "kind": "openai_compatible",
+      "location": "online",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "api_key": "secret:qwen"
+    },
+    "anthropic": {
+      "kind": "anthropic",
+      "location": "online",
+      "api_key": "secret:anthropic"
+    },
+    "openai": {
+      "kind": "openai",
+      "location": "online",
+      "base_url": "https://api.openai.com/v1",
+      "api_key": "secret:openai"
+    }
+  },
+  "routes": {
+    "chat": {
+      "primary": {
+        "provider": "ollama_local",
+        "model": ""
+      },
+      "fallback": [],
+      "privacy": "content"
+    },
+    "agent": {
+      "primary": {
+        "provider": "ollama_local",
+        "model": ""
+      },
+      "fallback": [],
+      "privacy": "task"
+    },
+    "knowledge_compile": {
+      "primary": {
+        "provider": "ollama_local",
+        "model": ""
+      },
+      "fallback": [],
+      "privacy": "material"
+    },
+    "wiki_lint": {
+      "primary": {
+        "provider": "ollama_local",
+        "model": ""
+      },
+      "fallback": [],
+      "privacy": "material"
+    },
+    "memory_extract": {
+      "primary": {
+        "provider": "ollama_local",
+        "model": ""
+      },
+      "fallback": [],
+      "privacy": "prefer_local"
+    },
+    "memory_consolidate": {
+      "primary": {
+        "provider": "ollama_local",
+        "model": ""
+      },
+      "fallback": [],
+      "privacy": "prefer_local"
+    },
+    "experience": {
+      "primary": {
+        "provider": "ollama_local",
+        "model": ""
+      },
+      "fallback": [],
+      "privacy": "prefer_local"
+    },
+    "persona": {
+      "primary": {
+        "provider": "ollama_local",
+        "model": ""
+      },
+      "fallback": [],
+      "privacy": "prefer_local"
+    },
+    "embedding": {
+      "primary": {
+        "provider": "ollama_local",
+        "model": "bge-m3"
+      },
+      "fallback": [],
+      "privacy": "prefer_local"
+    },
+    "vision": {
+      "primary": {
+        "provider": "ollama_local",
+        "model": ""
+      },
+      "fallback": [],
+      "privacy": "content"
+    },
+    "skill_search_rerank": {
+      "primary": {
+        "provider": "ollama_local",
+        "model": ""
+      },
+      "fallback": [],
+      "privacy": "public_only"
+    },
+    "nightly": {
+      "primary": {
+        "provider": "ollama_local",
+        "model": ""
+      },
+      "fallback": [],
+      "privacy": "task"
+    },
+    "reflection": {
+      "primary": {
+        "provider": "ollama_local",
+        "model": ""
+      },
+      "fallback": [],
+      "privacy": "prefer_local"
+    }
+  },
+  "budgets": {
+    "agent": {
+      "max_tokens_per_task": 400000
+    },
+    "nightly": {
+      "max_tokens_per_day": 300000
+    },
+    "evolution": {
+      "max_tokens_per_day": 200000
+    }
+  }
+}

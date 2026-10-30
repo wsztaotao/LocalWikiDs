@@ -1,0 +1,14 @@
+{
+  "commit_id": "cmt_5cfa3282f833",
+  "parent": "snap_3ca959af",
+  "snapshot_id": "snap_7b4c6862",
+  "change_uid": "chg_209a0034b53e",
+  "applied": [
+    {
+      "path": "profiles/style/language.md",
+      "sha256": "dd437d53912d45332c13aeb34ec8b86f0aaeaba117e00130ce445af3a9b10012",
+      "op": "create"
+    }
+  ],
+  "at": "2026-10-22T07:14:36+00:00"
+}

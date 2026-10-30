@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LocalWiki</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css?v=r320-ui1" />
+</head>
+<body class="lw-body">
+  <div class="d-flex" id="app-shell">
+    <aside class="lw-sidebar d-flex flex-column">
+      <div class="lw-brand px-3 py-3">
+        <div class="fw-bold fs-5">LocalWiki</div>
+        <div class="small text-secondary">Personal Core</div>
+      </div>
+      <nav class="nav nav-pills flex-column gap-1 px-2 flex-grow-1" id="tabs">
+        <button type="button" class="nav-link text-start" data-panel="status"><i class="bi bi-activity me-2"></i>状态</button>
+        <button type="button" class="nav-link text-start" data-panel="import"><i class="bi bi-upload me-2"></i>导入</button>
+        <button type="button" class="nav-link text-start" data-panel="proposals"><i class="bi bi-check2-square me-2"></i>待确认</button>
+        <button type="button" class="nav-link text-start" data-panel="workspace"><i class="bi bi-journal-text me-2"></i>知识库</button>
+        <button type="button" class="nav-link active text-start" data-panel="agent"><i class="bi bi-chat-dots me-2"></i>工作台</button>
+        <button type="button" class="nav-link text-start" data-panel="personal"><i class="bi bi-person-lines-fill me-2"></i>记忆·经验·风格</button>
+        <button type="button" class="nav-link text-start" data-panel="settings"><i class="bi bi-gear me-2"></i>设置</button>
+        <button type="button" class="nav-link text-start" data-panel="evolution"><i class="bi bi-arrow-repeat me-2"></i>进化</button>
+      </nav>
+      <div class="px-3 py-2 text-secondary small border-top">
+        本机 · OpenCode
+      </div>
+    </aside>
+
+    <main class="lw-main flex-grow-1">
+      <section id="panel-status" class="panel p-4">
+        <h1 class="h3 mb-1">状态</h1>
+        <p class="text-secondary">本机就绪 · Token 与 OpenCode</p>
+        <div class="card shadow-sm mb-3">
+          <div class="card-body d-flex flex-wrap align-items-center gap-2">
+            <span class="text-secondary small">API Token</span>
+            <code id="status-token-display">（加载中…）</code>
+            <button type="button" class="btn btn-primary btn-sm" id="btn-copy-token">复制</button>
+            <button type="button" class="btn btn-outline-secondary btn-sm" id="btn-toggle-token">显示/隐藏</button>
+            <button type="button" class="btn btn-outline-primary btn-sm" id="btn-fetch-token">从服务填入</button>
+            <button type="button" class="btn btn-outline-secondary btn-sm" id="btn-refresh-status">刷新</button>
+          </div>
+        </div>
+        <div class="alert alert-light border small mb-3">
+          请用 <code>scripts\start-localwiki.cmd</code> 启动（含锁 takeover）。改码后须重启窗口才能加载新 API/UI。
+        </div>
+        <pre id="status-out" class="lw-pre card card-body">加载中…</pre>
+      </section>
+
+      <section id="panel-import" class="panel p-4">
+        <h1 class="h3">导入</h1>
+        <p class="text-secondary mb-1">流程：上传提取 → <strong>模型整理</strong>（默认）→「待确认」接受 →「知识库」。</p>
+        <p class="text-secondary small">默认走六路 <code>knowledge_compile</code>：摘要 + 全文精读。仅当你显式点「弱整理」时才用启发式（不经大模型）。</p>
+        <p class="text-secondary small">支持 MD / TXT / PDF / DOCX / XLSX。</p>
+        <input type="file" class="form-control mb-3" style="max-width:28rem" id="import-file" accept=".md,.markdown,.txt,.pdf,.docx,.xlsx,.xlsm,text/plain,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+        <div class="d-flex gap-2 mb-3">
+          <button type="button" class="btn btn-primary" id="btn-import">上传导入</button>
+          <button type="button" class="btn btn-outline-secondary" id="btn-refresh-sources">刷新来源</button>
+        </div>
+        <ul id="source-list" class="list-group mb-3"></ul>
+        <pre id="import-out" class="lw-pre card card-body"></pre>
+      </section>
+
+      <section id="panel-proposals" class="panel p-4">
+        <h1 class="h3">待确认</h1>
+        <p class="text-secondary">导入整理后的提案在此审核。勾选后批量接受 / 拒绝；接受后页面才会进入「知识库」。默认只显示待确认（draft / ready）。含去重闸门标记时会显示「已挂链 / 需复核」。</p>
+        <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+          <button type="button" class="btn btn-outline-secondary" id="btn-refresh-proposals">刷新列表</button>
+          <button type="button" class="btn btn-outline-primary" id="btn-dedup-scan" title="扫描知识库重复并高置信合并">去重扫描</button>
+          <button type="button" class="btn btn-success" id="btn-batch-accept">批量接受</button>
+          <button type="button" class="btn btn-outline-danger" id="btn-batch-reject">批量拒绝</button>
+          <div class="form-check ms-2 mb-0">
+            <input class="form-check-input" type="checkbox" id="proposals-select-all" />
+            <label class="form-check-label" for="proposals-select-all">全选</label>
+          </div>
+          <div class="form-check ms-2 mb-0">
+            <input class="form-check-input" type="checkbox" id="proposals-show-all" />
+            <label class="form-check-label" for="proposals-show-all">显示已处理</label>
+          </div>
+          <span class="small text-secondary" id="proposals-filter-hint"></span>
+        </div>
+        <ul id="proposal-list" class="list-group"></ul>
+      </section>
+
+      <section id="panel-workspace" class="panel p-4">
+        <h1 class="h3">知识库</h1>
+        <p class="text-secondary">列表浏览 · 关系图谱（[[链接]]）· 点节点打开预览</p>
+        <ul class="nav nav-tabs mb-3" id="wiki-tabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="tab-wiki-list" data-bs-toggle="tab" data-bs-target="#pane-wiki-list" type="button" role="tab">列表</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-wiki-graph" data-bs-toggle="tab" data-bs-target="#pane-wiki-graph" type="button" role="tab">图谱</button>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane fade show active" id="pane-wiki-list" role="tabpanel">
+            <div class="row g-3">
+              <div class="col-lg-4">
+                <button type="button" class="btn btn-outline-secondary btn-sm mb-2" id="btn-refresh-pages">刷新页面</button>
+                <ul id="page-list" class="list-group"></ul>
+              </div>
+              <div class="col-lg-8">
+                <div class="d-flex flex-wrap gap-2 mb-2">
+                  <button type="button" class="btn btn-success btn-sm" id="btn-save-page" disabled>保存</button>
+                  <span id="page-save-err" class="small text-danger"></span>
+                </div>
+                <textarea id="page-preview" class="form-control font-monospace min-h-240" rows="16" placeholder="选择左侧页面编辑…"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="pane-wiki-graph" role="tabpanel">
+            <div class="d-flex flex-wrap gap-2 align-items-center mb-2">
+              <button type="button" class="btn btn-primary btn-sm" id="btn-refresh-graph">刷新图谱</button>
+              <span id="graph-stats" class="small text-secondary"></span>
+            </div>
+            <div class="d-flex flex-wrap gap-2 align-items-center mb-2 small" id="graph-toolbar">
+              <span class="text-secondary">展开类：</span>
+              <div id="graph-cat-checks" class="d-flex flex-wrap gap-2"></div>
+              <label class="form-check form-check-inline mb-0 ms-1">
+                <input class="form-check-input" type="checkbox" id="graph-weak" checked />
+                <span class="form-check-label">弱边</span>
+              </label>
+              <label class="form-check form-check-inline mb-0">
+                <input class="form-check-input" type="checkbox" id="graph-hide-isolates" />
+                <span class="form-check-label">隐藏孤立</span>
+              </label>
+              <input type="search" class="form-control form-control-sm" id="graph-search" placeholder="搜索标题/路径" style="max-width:12rem" />
+            </div>
+            <div id="graph-legend" class="graph-legend small mb-2"></div>
+            <div id="graph-empty-hint" class="alert alert-info border d-none small mb-2" role="status"></div>
+            <div class="row g-3">
+              <div class="col-lg-8">
+                <div id="wiki-graph-cy" class="wiki-graph-cy card border"></div>
+              </div>
+              <div class="col-lg-4">
+                <pre id="page-preview-graph" class="lw-pre card card-body min-h-240">点击节点预览；总览点类可展开</pre>
+                <div class="mt-2" id="graph-cat-edit-wrap">
+                  <label class="form-label small mb-1" for="graph-cat-input">自定义分类（逗号分隔）</label>
+                  <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" id="graph-cat-input" placeholder="如：课题,发票" disabled />
+                    <button type="button" class="btn btn-outline-primary" id="btn-graph-save-cats" disabled>保存分类</button>
+                  </div>
+                  <div class="small text-secondary mt-1" id="graph-cat-edit-hint"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="panel-agent" class="panel active p-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+          <div>
+            <h1 class="h3 mb-0">工作台</h1>
+            <p class="text-secondary mb-0">OpenCode 会话 · 三预设 · 并行最多 2</p>
+          </div>
+          <div class="d-flex flex-wrap gap-2 align-items-center">
+            <select class="form-select form-select-sm" id="wb-preset" style="width:auto">
+              <option value="local">本地</option>
+              <option value="deepseek">DeepSeek</option>
+              <option value="qwen">千问</option>
+            </select>
+            <button type="button" class="btn btn-outline-secondary btn-sm" id="btn-wb-new">新会话</button>
+            <button type="button" class="btn btn-outline-secondary btn-sm" id="btn-wb-refresh">刷新</button>
+          </div>
+        </div>
+        <div id="wb-storage-warn" class="alert alert-warning py-2 small d-none" role="alert">会话目录已超过 50GB 软上限（仍可继续发送）。</div>
+        <div id="wb-queue" class="small text-secondary mb-2"></div>
+        <div class="row g-3">
+          <div class="col-lg-4 wb-layout-list">
+            <div class="small text-secondary mb-1 px-1">历史会话</div>
+            <ul id="wb-session-list" class="list-group list-group-flush wb-session-list"></ul>
+          </div>
+          <div class="col-lg-8">
+            <div id="wb-wiki-hint" class="small text-secondary mb-1 d-none"></div>
+            <div id="wb-run-panel" class="wb-run-panel d-none mb-2" aria-live="polite">
+              <div class="wb-run-head d-flex align-items-center justify-content-between gap-2">
+                <div>
+                  <strong id="wb-run-title">运行中</strong>
+                  <span id="wb-run-status" class="wb-run-status small text-secondary ms-2"></span>
+                </div>
+                <button type="button" class="btn btn-outline-danger btn-sm" id="btn-wb-stop" disabled>停止</button>
+              </div>
+              <div id="wb-run-log" class="wb-run-log small"></div>
+            </div>
+            <div id="wb-messages" class="wb-messages mb-2"></div>
+            <div class="d-flex flex-wrap gap-2 mb-2">
+              <button type="button" class="btn btn-outline-danger btn-sm" id="btn-wb-delete" disabled>删除当前</button>
+              <button type="button" class="btn btn-outline-danger btn-sm" id="btn-wb-clear">清空全部…</button>
+            </div>
+            <textarea class="form-control mb-2" id="wb-input" rows="3" placeholder="输入消息，Enter+Ctrl 发送…"></textarea>
+            <div class="d-flex flex-wrap gap-2 align-items-center">
+              <button type="button" class="btn btn-primary" id="btn-wb-send" disabled>发送</button>
+              <button type="button" class="btn btn-outline-secondary" id="btn-wb-continue" disabled title="需已有 OpenCode 会话引用">继续</button>
+              <span id="wb-continue-hint" class="small text-secondary"></span>
+            </div>
+            <div id="agent-result-card" class="mt-3"></div>
+            <details class="mt-3">
+              <summary class="text-secondary small">调试 / 兼容 agent exec</summary>
+              <div class="mt-2">
+                <textarea class="form-control mb-2" id="agent-goal" rows="2" placeholder="单次 goal（兼容）"></textarea>
+                <select class="form-select mb-2" id="agent-runtime" style="max-width:16rem">
+                  <option value="opencode" selected>opencode</option>
+                  <option value="local">local</option>
+                </select>
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="btn-agent-run">兼容执行</button>
+                <pre id="agent-out" class="lw-pre card card-body mt-2"></pre>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section id="panel-personal" class="panel p-4">
+        <h1 class="h3">记忆 · 经验 · 风格</h1>
+        <p class="text-secondary">个人上下文打包预览（OCEAN 默认关闭）</p>
+        <button type="button" class="btn btn-outline-secondary mb-3" id="btn-personal-ctx">刷新上下文</button>
+        <pre id="personal-out" class="lw-pre card card-body"></pre>
+      </section>
+
+      <section id="panel-settings" class="panel p-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+          <div>
+            <h1 class="h3 mb-0">设置</h1>
+            <p class="text-secondary mb-0">连接 · 厂商（地址 / 类型 / Key）· Ollama · 路由 · Skill</p>
+          </div>
+          <button type="button" class="btn btn-outline-secondary btn-sm" id="btn-load-settings">刷新全部设置</button>
+        </div>
+
+        <ul class="nav nav-tabs" id="settings-tabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-conn" data-bs-toggle="tab" data-bs-target="#pane-conn" type="button" role="tab">连接</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="tab-models" data-bs-toggle="tab" data-bs-target="#pane-models" type="button" role="tab">厂商与模型</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-routes" data-bs-toggle="tab" data-bs-target="#pane-routes" type="button" role="tab">六路路由</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-auto" data-bs-toggle="tab" data-bs-target="#pane-auto" type="button" role="tab">自治</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-skills" data-bs-toggle="tab" data-bs-target="#pane-skills" type="button" role="tab">Skill / Harness</button>
+          </li>
+        </ul>
+
+        <div class="tab-content border border-top-0 rounded-bottom bg-white p-3 shadow-sm">
+          <div class="tab-pane fade" id="pane-conn" role="tabpanel">
+            <div class="mb-3" style="max-width:28rem">
+              <label class="form-label" for="token-input">API Token</label>
+              <input type="password" class="form-control" id="token-input" autocomplete="off" />
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <button type="button" class="btn btn-primary" id="btn-save-token">保存 Token</button>
+              <button type="button" class="btn btn-outline-primary" id="btn-fetch-token-settings">从服务读取并填入</button>
+            </div>
+            <p class="form-text mt-2">若 Ollama 报「not in Personal Core」，请用 <code>scripts\start-localwiki.cmd</code> <strong>重启</strong> 后再点「拉取本地模型列表」。</p>
+          </div>
+
+          <div class="tab-pane fade show active" id="pane-models" role="tabpanel">
+            <ul class="nav nav-pills gap-1 mb-3 flex-wrap" id="models-subtabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="subtab-edit-prov" data-bs-toggle="tab" data-bs-target="#subpane-edit-prov" type="button" role="tab">编辑厂商</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="subtab-providers" data-bs-toggle="tab" data-bs-target="#subpane-providers" type="button" role="tab">已配置</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="subtab-wb-presets" data-bs-toggle="tab" data-bs-target="#subpane-wb-presets" type="button" role="tab">工作台预设</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="subtab-ollama" data-bs-toggle="tab" data-bs-target="#subpane-ollama" type="button" role="tab">Ollama</button>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="subpane-edit-prov" role="tabpanel">
+                <div class="alert alert-light border mb-3">
+                  <div class="fw-semibold mb-1">快速预设</div>
+                  <div class="d-flex flex-wrap gap-2" id="preset-buttons"></div>
+                  <div class="form-text">点击预设填入表单，再点「保存当前厂商」。</div>
+                </div>
+                <div class="card border mb-3">
+                  <div class="card-header fw-semibold">编辑 / 新增厂商</div>
+                  <div class="card-body">
+                    <div class="row g-3">
+                      <div class="col-md-3">
+                        <label class="form-label" for="edit-prov-id">厂商 ID</label>
+                        <input class="form-control" id="edit-prov-id" placeholder="例如 deepseek / openai" />
+                      </div>
+                      <div class="col-md-3">
+                        <label class="form-label" for="edit-prov-kind">API 类型</label>
+                        <select class="form-select" id="edit-prov-kind">
+                          <option value="ollama">ollama（本地）</option>
+                          <option value="openai">openai</option>
+                          <option value="openai_compatible">openai_compatible</option>
+                          <option value="anthropic">anthropic（Claude 原生）</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label" for="edit-prov-base">模型访问地址（Base URL）</label>
+                        <input class="form-control" id="edit-prov-base" placeholder="http://127.0.0.1:11434 或 https://api.deepseek.com/v1" />
+                      </div>
+                      <div class="col-md-8">
+                        <label class="form-label" for="edit-prov-key">API Key <span id="edit-prov-key-badge" class="badge text-bg-secondary d-none">未配置 Key</span></label>
+                        <input type="password" class="form-control" id="edit-prov-key" placeholder="在线模型必填；保存后写入本机密钥库" autocomplete="new-password" />
+                        <div class="form-text" id="edit-prov-key-hint">当前引用：（未加载）</div>
+                        <div id="edit-prov-save-status"></div>
+                      </div>
+                      <div class="col-md-4 d-flex align-items-end">
+                        <button type="button" class="btn btn-primary w-100" id="btn-save-one-provider">保存当前厂商</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card border">
+                  <div class="card-header fw-semibold">OpenCode</div>
+                  <div class="card-body">
+                    <pre id="oc-status-out" class="lw-pre small mb-2">未加载</pre>
+                    <button type="button" class="btn btn-outline-primary btn-sm" id="btn-oc-status">刷新状态</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="btn-oc-check">检查更新（不自动升）</button>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="subpane-providers" role="tabpanel">
+                <div id="providers-form" class="vstack gap-2"></div>
+              </div>
+              <div class="tab-pane fade" id="subpane-wb-presets" role="tabpanel">
+                <p class="small text-secondary">映射到已配置厂商；工作台切换预设会同步改写 agent 路由。</p>
+                <div id="wb-preset-editors" class="vstack gap-2"></div>
+                <button type="button" class="btn btn-primary btn-sm mt-2" id="btn-save-wb-presets">保存预设映射</button>
+              </div>
+              <div class="tab-pane fade" id="subpane-ollama" role="tabpanel">
+                <div class="row g-2 align-items-end mb-2">
+                  <div class="col-md-7">
+                    <label class="form-label" for="ollama-base-url">Ollama 地址</label>
+                    <input class="form-control" id="ollama-base-url" value="http://127.0.0.1:11434" />
+                  </div>
+                  <div class="col-md-5">
+                    <button type="button" class="btn btn-primary" id="btn-refresh-ollama"><i class="bi bi-arrow-repeat me-1"></i>拉取本地模型列表</button>
+                  </div>
+                </div>
+                <p id="ollama-status" class="small text-secondary"></p>
+                <label class="form-label" for="ollama-model-pick">可用模型</label>
+                <select class="form-select" id="ollama-model-pick" size="10"></select>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="pane-routes" role="tabpanel">
+            <p class="text-secondary small">为六路能力各选厂商与模型。切换厂商后模型列表会刷新为该厂商可用模型（Ollama 本地标签 / 在线 /v1/models 或内置建议）。</p>
+            <div id="routes-form" class="vstack gap-2"></div>
+            <div class="d-flex flex-wrap gap-2 mt-3">
+              <button type="button" class="btn btn-success" id="btn-save-models">保存路由</button>
+              <button type="button" class="btn btn-outline-primary" id="btn-probe-models">探活</button>
+              <button type="button" class="btn btn-outline-secondary" id="btn-sync-models">同步 agent → 全部</button>
+            </div>
+            <div id="probe-results" class="mt-3"></div>
+          </div>
+
+          <div class="tab-pane fade" id="pane-auto" role="tabpanel">
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" id="loop-enabled" />
+              <label class="form-check-label" for="loop-enabled">启用本仓 Agent Loop（默认关；主路径 OpenCode）</label>
+            </div>
+            <div class="mb-3" style="max-width:12rem">
+              <label class="form-label" for="nightly-hour">夜间钟点（本地 0–23）</label>
+              <input type="number" class="form-control" id="nightly-hour" min="0" max="23" value="3" />
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="pause-evolution" />
+              <label class="form-check-label" for="pause-evolution">暂停自进化自动 apply（应急）</label>
+            </div>
+            <button type="button" class="btn btn-primary" id="btn-save-autonomy">保存自治选项</button>
+          </div>
+
+          <div class="tab-pane fade" id="pane-skills" role="tabpanel">
+            <p id="skills-align" class="small text-secondary"></p>
+            <div id="skills-installed" class="mb-3"></div>
+            <div class="card card-body mb-3 py-2">
+              <label class="form-label mb-1" for="skills-github-token">GitHub Token（代码搜索 SKILL.md 需要；可装仓库搜索无 Token 也可试）</label>
+              <div class="row g-2 align-items-end">
+                <div class="col-md-7">
+                  <input type="password" class="form-control" id="skills-github-token" placeholder="ghp_… 保存后写入本机密钥库" autocomplete="new-password" />
+                </div>
+                <div class="col-md-5 d-flex flex-wrap gap-2">
+                  <button type="button" class="btn btn-outline-primary btn-sm" id="btn-skills-github-token-save">保存 Token</button>
+                  <button type="button" class="btn btn-outline-secondary btn-sm" id="btn-skills-github-token-clear">清除</button>
+                  <span id="skills-github-token-status" class="small align-self-center text-secondary">未配置</span>
+                </div>
+              </div>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-md-8">
+                <label class="form-label" for="skills-query">搜索</label>
+                <input class="form-control" id="skills-query" placeholder="例如 语音 / pptx / filesystem" />
+              </div>
+              <div class="col-md-4 d-flex align-items-end gap-2">
+                <button type="button" class="btn btn-primary" id="btn-skills-search">搜索</button>
+                <button type="button" class="btn btn-outline-secondary" id="btn-skills-refresh">刷新已装</button>
+              </div>
+            </div>
+            <div id="skills-search-out" class="mb-3"></div>
+            <div class="mb-2">
+              <label class="form-label" for="skills-source">从 GitHub 安装（URL 或 org/repo）</label>
+              <input class="form-control" id="skills-source" placeholder="https://github.com/org/repo/tree/main/skills/foo" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="skills-path">子路径 path（可选）</label>
+              <input class="form-control" id="skills-path" placeholder="skills/foo" />
+            </div>
+            <div class="d-flex flex-wrap gap-2 mb-2">
+              <button type="button" class="btn btn-success" id="btn-skills-bootstrap-office">安装办公文档技能包</button>
+              <button type="button" class="btn btn-primary" id="btn-skills-install-url">安装 Skill</button>
+              <button type="button" class="btn btn-outline-primary" id="btn-harness-install-url">安装 Harness</button>
+            </div>
+            <p class="small text-secondary mb-0">办公包：Word / Excel / PDF（+ PPT 尽力）；导出文件经「工作台」链接下载到本机。</p>
+          </div>
+        </div>
+
+        <details class="mt-3">
+          <summary class="text-secondary small">调试 JSON</summary>
+          <pre id="settings-out" class="lw-pre card card-body mt-2"></pre>
+        </details>
+      </section>
+
+      <section id="panel-evolution" class="panel p-4">
+        <h1 class="h3">进化审计</h1>
+        <p class="text-secondary">夜间自动 apply；可暂停 / 回滚</p>
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <button type="button" class="btn btn-outline-secondary" id="btn-evo-status">刷新状态</button>
+          <button type="button" class="btn btn-warning" id="btn-evo-pause">暂停</button>
+          <button type="button" class="btn btn-success" id="btn-evo-resume">恢复</button>
+          <button type="button" class="btn btn-outline-primary" id="btn-nightly-run">立即夜间管线</button>
+        </div>
+        <div class="mb-3" style="max-width:20rem">
+          <label class="form-label" for="evo-rollback-id">回滚 version_id</label>
+          <input class="form-control" type="text" id="evo-rollback-id" placeholder="evo_000001" />
+        </div>
+        <button type="button" class="btn btn-danger" id="btn-evo-rollback">回滚</button>
+        <pre id="evolution-out" class="lw-pre card card-body mt-3"></pre>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.30.4/dist/cytoscape.min.js"></script>
+  <script src="/skills.js"></script>
+  <script src="/app.js?v=r320-ui1"></script>
+</body>
+</html>

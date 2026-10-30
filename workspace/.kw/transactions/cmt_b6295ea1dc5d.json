@@ -1,0 +1,15 @@
+{
+  "commit_id": "cmt_b6295ea1dc5d",
+  "parent": "snap_4aeac016",
+  "snapshot_id": "snap_3ca959af",
+  "change_uid": "chg_73971aa8dd6c",
+  "ops": [
+    {
+      "op": "create",
+      "path": "experiences/_nightly.md",
+      "content": "# Nightly experience note\n\nCompiled at `2026-10-22T15:14:36+08:00`.\n"
+    }
+  ],
+  "phase": "COMMITTED",
+  "at": "2026-10-22T07:14:36+00:00"
+}

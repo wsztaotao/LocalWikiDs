@@ -1,0 +1,15 @@
+{
+  "commit_id": "cmt_5cfa3282f833",
+  "parent": "snap_3ca959af",
+  "snapshot_id": "snap_7b4c6862",
+  "change_uid": "chg_209a0034b53e",
+  "ops": [
+    {
+      "op": "create",
+      "path": "profiles/style/language.md",
+      "content": "# Language style\n\nNightly refresh `2026-10-22T15:14:36+08:00`.\n"
+    }
+  ],
+  "phase": "COMMITTED",
+  "at": "2026-10-22T07:14:36+00:00"
+}

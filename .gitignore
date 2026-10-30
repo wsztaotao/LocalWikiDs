@@ -1,0 +1,24 @@
+.venv-work/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+.Python
+.cursor/
+.tmp-*
+.tmp-*/
+tmp_fts_test/
+%USERPROFILE%/
+# GitHub sync credentials (never commit)
+docs/git.txt
+# OpenCode vendored source + embedded binary (rebuild via scripts/)
+third_party/opencode/
+runtime/opencode/
+# Local runtime / secrets (never commit)
+.kw/
+**/.kw/secrets.bin
+**/.kw/runtime/
+**/.kw/sessions/
+**/.kw/exports/
+**/.kw/opencode-run/
+**/.kw/skills/
+workspace/.opencode/

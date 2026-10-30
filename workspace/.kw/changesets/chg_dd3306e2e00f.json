@@ -1,0 +1,17 @@
+{
+  "change_uid": "chg_dd3306e2e00f",
+  "base_snapshot_id": "snap_7b4c6862",
+  "purpose": "nightly memory consolidate marker",
+  "ops": [
+    {
+      "op": "update",
+      "path": "memories/_nightly.md",
+      "content": "# Nightly memory note\n\nLast nightly personal layer: `2026-10-26T12:32:55+08:00`\n\nAuto-accepted under D9 `memories/`.\n",
+      "base_sha256": "02dd4cc8ed30c3a140b526c3df7e4357653f05c0f7a040fe5936c0760e8bda70"
+    }
+  ],
+  "state": "accepted",
+  "created_at": "2026-10-26T04:32:55+00:00",
+  "commit_id": "cmt_73e600d63cbd",
+  "error": null
+}

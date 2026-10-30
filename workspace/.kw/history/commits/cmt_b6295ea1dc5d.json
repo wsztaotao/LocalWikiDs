@@ -1,0 +1,14 @@
+{
+  "commit_id": "cmt_b6295ea1dc5d",
+  "parent": "snap_4aeac016",
+  "snapshot_id": "snap_3ca959af",
+  "change_uid": "chg_73971aa8dd6c",
+  "applied": [
+    {
+      "path": "experiences/_nightly.md",
+      "sha256": "db78626dfb7f2861730998efb74d7804be440002acff09ebb28648ebcfe14ee8",
+      "op": "create"
+    }
+  ],
+  "at": "2026-10-22T07:14:36+00:00"
+}

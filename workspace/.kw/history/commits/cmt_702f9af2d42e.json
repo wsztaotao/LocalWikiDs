@@ -1,0 +1,19 @@
+{
+  "commit_id": "cmt_702f9af2d42e",
+  "parent": "snap_000000",
+  "snapshot_id": "snap_34afe9ac",
+  "change_uid": "chg_7c1c69ac7c70",
+  "applied": [
+    {
+      "path": "references/src_c00229c105d8.md",
+      "sha256": "035608a4621f037884a99ca8a32e2091a51960a84344330fd932ae5cc31429e6",
+      "op": "create"
+    },
+    {
+      "path": "topics/分层进阶-践学赋能-小学语文课内外融合培育核心素养的模式构建研究.md",
+      "sha256": "09da68ea3717e7c93734ce016790fb8f106ebfd6d5e6a9bb4918583f6d683c95",
+      "op": "create"
+    }
+  ],
+  "at": "2026-10-22T07:13:26+00:00"
+}
