@@ -1,0 +1,27 @@
+# LocalWiki page type requirements (v0.12 defaults)
+version: "0.12.0"
+types:
+  Concept:
+    required_sections: ["定义", "适用条件", "证据", "关联", "未解决问题"]
+    kw_required: []
+  Topic:
+    required_sections: ["综合", "一致点", "分歧"]
+    kw_required: []
+  Entity:
+    required_sections: ["概述"]
+    kw_required: []
+  Source Summary:
+    required_sections: ["摘要", "要点"]
+    kw_required: []
+  Decision:
+    required_sections: ["决定", "范围", "决定者", "日期"]
+    kw_required: []
+  Question:
+    required_sections: ["问题", "背景"]
+    kw_required: []
+  Memory:
+    required_sections: ["陈述", "证据"]
+    kw_required: ["kw.memory"]
+  Persona Trait:
+    required_sections: ["维度", "证据"]
+    kw_required: ["kw.persona"]

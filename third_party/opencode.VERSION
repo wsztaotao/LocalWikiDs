@@ -1,0 +1,5 @@
+# OpenCode pin for LocalWiki same-package (R3.5 U8 / Q5A).
+# Never track @latest — bump deliberately.
+tag=v1.19.3
+sha=e3c4eb242585dcd77be1a867391b7c25fd47ce52
+note=Source at third_party/opencode @ tag. Local Win compile hit drizzle-orm/bun issues; scripts/build_opencode.ps1 fell back to official opencode-windows-x64.zip for same tag (S0 D20). Binary: runtime/opencode/opencode.exe

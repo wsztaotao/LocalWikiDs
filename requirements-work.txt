@@ -1,0 +1,30 @@
+# LocalWiki v0.12 optional / work dependencies (LW-03)
+# Install into a dedicated venv, e.g. install-work-windows.cmd → .venv-work
+# Do NOT use unpinned or @latest markers.
+
+# Vector index (Windows loadable extension)
+sqlite-vec==0.1.9
+
+# Web search (needs user Tavily API key at runtime)
+tavily-python==0.8.5
+
+# Third-party app connectors (needs user Composio API key at runtime)
+composio==0.25.0
+
+# MCP Python SDK (stdio client/server helpers)
+mcp==1.30.0
+
+# R2 extractors (Personal Core) + R3.11 office + R3.15 local TTS
+pypdf==6.11.0
+python-docx==1.1.2
+openpyxl==3.1.5
+python-pptx==1.0.2
+edge-tts==7.2.3
+reportlab==4.4.4
+
+# R3 nightly scheduler (optional; serve falls back if missing)
+APScheduler==3.10.4
+
+# Node packages (not installed by pip; pin for npx / package.json references):
+#   @playwright/mcp@0.0.83
+#   tavily-mcp@0.2.22   # optional remote/stdio search MCP; secondary to tavily-python
